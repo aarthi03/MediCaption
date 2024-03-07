@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <style>
+        body {
+            background-image: url('/meddi.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #uploadForm {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        #message {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #fileInput {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Image Uploader</h1>
+    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" id="fileInput" accept="image/*">
+        <br>
+        <input type="submit" value="Upload Image">
+    </form>
+    <div id="message"></div> <!-- Div to display the message -->
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            var formData = new FormData(this); // Create FormData object
+            // Send FormData object to server using fetch API
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Display success message
+                    document.getElementById('message').innerText = 'Image uploaded successfully';
+                } else {
+                    // Display error message
+                    document.getElementById('message').innerText = 'Error uploading image';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
