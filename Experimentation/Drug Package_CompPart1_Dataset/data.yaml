@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['C-Retard', 'C-VIT', 'Free Nose']
+
+roboflow:
+  workspace: yolomadhu
+  project: drug-package
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/yolomadhu/drug-package/dataset/3

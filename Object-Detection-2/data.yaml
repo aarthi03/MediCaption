@@ -1,9 +1,0 @@
-path: ../datasets/roboflow
-
-train: /Users/madhuv/Desktop/GitProject/COMP5800YC/Object-Detection-2/valid/images
-val: /Users/madhuv/Desktop/GitProject/COMP5800YC/Object-Detection-2/train/images
-test: /Users/madhuv/Desktop/GitProject/COMP5800YC/Object-Detection-2/test/images
-
-
-names: 
-  0: Medicine Name

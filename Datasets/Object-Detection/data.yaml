@@ -1,0 +1,6 @@
+names:
+  0: Medicine Name
+path: ../datasets/roboflow
+test: /Users/madhuv/Desktop/GitProject/COMP5800YC/Datasets/Object-Detection/test/images
+train: /Users/madhuv/Desktop/GitProject/COMP5800YC/Datasets/Object-Detection/valid/images
+val: /Users/madhuv/Desktop/GitProject/COMP5800YC/Datasets/Object-Detection/train/images
