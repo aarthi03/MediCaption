@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+</head>
+<body>
+    <h1>Image Uploader</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" id="fileInput" accept="image/*">
+        <br>
+        <input type="submit" value="Upload Image">
+    </form>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                // Display the selected image
+                var imgElement = document.createElement('img');
+                imgElement.src = event.target.result;
+                imgElement.style.maxWidth = '500px';
+                imgElement.style.maxHeight = '500px';
+                document.body.appendChild(imgElement);
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
